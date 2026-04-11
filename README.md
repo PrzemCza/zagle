@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Omega Sailing – Strona-wizytówka wynajmu żaglówki na Mazurach
 
-## Getting Started
+Nowoczesna strona-wizytówka wynajmu żaglówki **Omega** na Jeziorze Śniardwy (Mikołajki).
+Zbudowana w Next.js 16 + Tailwind CSS, w pełni responsywna, bez systemu rezerwacji.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + React 19
+- **Tailwind CSS** – stylowanie
+- **Lucide React** – ikony
+- TypeScript
+
+## Struktura stron
+
+| Strona | Ścieżka | Opis |
+|--------|---------|------|
+| Strona główna | `/` | Hero, „Dlaczego my", preview Omegi, opinie klientów, CTA |
+| O mnie | `/o-mnie` | Sylwetka właściciela, opis jeziora Śniardwy, trasy, galeria |
+| Oferta | `/oferta` | Dane techniczne Omegi, cennik, galeria, CTA kontakt |
+| Kontakt | `/kontakt` | Telefon, e-mail, adres, godziny, mapa Google, formularz |
+
+## Uruchomienie
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd zeglarstwo-app
+npm install
+npm run dev       # http://localhost:3000
+npm run build     # build produkcyjny
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Komponenty
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Komponent | Plik | Opis |
+|-----------|------|------|
+| Header | `src/components/Header.tsx` | Sticky navbar z logo, desktop + mobile menu |
+| Footer | `src/components/Footer.tsx` | Footer z linkami, kontaktem, godzinami |
+| HeroSection | `src/components/HeroSection.tsx` | Hero z dużym zdjęciem jeziora + CTA |
+| FeaturesSection | `src/components/FeaturesSection.tsx` | Sekcja „Dlaczego my" – 4 karty |
+| BoatPreview | `src/components/BoatPreview.tsx` | Podgląd Omegi z podstawowymi parametrami |
+| TestimonialsSection | `src/components/TestimonialsSection.tsx` | Opinie klientów (3 cytaty) |
+| CtaSection | `src/components/CtaSection.tsx` | CTA – telefon + e-mail |
+| ContactForm | `src/components/ContactForm.tsx` | Formularz kontaktowy (client component) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Zmiany (2026-04-02)
 
-## Learn More
+1. **HeroSection** – zmieniono tło na zdjęcie żaglówki na jeziorze (zamiast nurków/ryb).
+2. **O mnie** – wymieniono zdjęcia galerii (wszystkie teraz żeglarskie).
+3. **Oferta** – wymieniono zdjęcia galerii 1 i 4.
+4. Poprawiono wszystkie linki do Unsplash na działające URL-e.
 
-To learn more about Next.js, take a look at the following resources:
+## Zmiany (2026-04-02 – naprawa zdjęć)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Wszystkie zdjęcia przeniesione z Unsplash na Pexels (niezawodny CDN bez blokad).
+6. Adresy zdjęć scentralizowane w `src/lib/images.ts` – łatwa zmiana w jednym miejscu.
+7. Poprawiono hero, podgląd Omegi, galerię w O mnie oraz galerię w Oferta.
