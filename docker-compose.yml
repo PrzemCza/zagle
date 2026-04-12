@@ -1,0 +1,6 @@
+services:
+  zagle:
+    image: ${ZAGLE_IMAGE}
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
