@@ -9,11 +9,13 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    outputs:
+      image_lower: ${{ steps.image.outputs.lower }}
     steps:
       - uses: actions/checkout@v4
 
@@ -39,6 +41,18 @@ jobs:
             ${{ env.REGISTRY }}/${{ steps.image.outputs.lower }}:latest
             ${{ env.REGISTRY }}/${{ steps.image.outputs.lower }}:${{ github.sha }}
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      REGISTRY: ghcr.io
+    steps:
+      - name: Known hosts (SSH)
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ssh-keyscan -T 15 -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+
       - name: Deploy over SSH
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -49,8 +63,23 @@ jobs:
           script: |
             set -e
             DEPLOY_PATH="${{ vars.DEPLOY_PATH }}"
-            test -n "$DEPLOY_PATH"
+            if [ -z "$DEPLOY_PATH" ]; then
+              echo "Błąd: w GitHub → Settings → Variables ustaw DEPLOY_PATH (np. /home/admin/zagle)."
+              exit 1
+            fi
+            if [ ! -d "$DEPLOY_PATH" ]; then
+              echo "Błąd: katalog nie istnieje: $DEPLOY_PATH"
+              exit 1
+            fi
+            if [ ! -f "$DEPLOY_PATH/docker-compose.yml" ]; then
+              echo "Błąd: brak $DEPLOY_PATH/docker-compose.yml — skopiuj plik z repozytorium na serwer."
+              exit 1
+            fi
             cd "$DEPLOY_PATH"
-            printf 'ZAGLE_IMAGE=%s\n' "${{ env.REGISTRY }}/${{ steps.image.outputs.lower }}:${{ github.sha }}" > .env
+            printf 'ZAGLE_IMAGE=%s\n' "${{ env.REGISTRY }}/${{ needs.build.outputs.image_lower }}:${{ github.sha }}" > .env
+            echo "Wdrażam obraz z .env:"
+            cat .env
             docker compose pull
             docker compose up -d
+            echo "Gotowe."
+            docker compose ps
