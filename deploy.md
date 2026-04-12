@@ -165,11 +165,104 @@ Zakładka **Variables** → **New repository variable**:
 
 ---
 
-## Część E — Nginx (port 80 → aplikacja na 3000)
+## Część E — Reverse proxy (Nginx) — port 80 → aplikacja na 3000
 
-Przeglądarka łączy się z serwerem na porcie **80**. Kontener nasłuchuje na **127.0.0.1:3000** tylko lokalnie. **Nginx** „przekłada” adres `http://194.163.189.157/zagle/...` na to samo żądanie do aplikacji na `127.0.0.1:3000`, żeby ścieżka `/zagle` była widoczna dla Next.js (zgodnie z `basePath`).
+### Co już wiesz z `ss`
 
-Dodaj w konfiguracji serwera (np. w `server { ... }` dla tego hosta / domyślnego) blok:
+Jeśli widzisz m.in. **`0.0.0.0:80`** — **ktoś już nasłuchuje na porcie 80** (to dobry znak: zwykle to główny reverse proxy). **Nie uruchamiaj drugiego** serwisu, który też chce zająć `:80` — jeden adres IP = jeden proces na porcie 80.
+
+Widoczne też **`8000`** i **`8080`** to zwykle **inne aplikacje** (np. mapowania z Dockera). **Nie ruszaj ich** pod kątem Zagle — ta instrukcja dodaje tylko obsługę ścieżki **`/zagle`** na tym samym wejściu co reszta ruchu na 80.
+
+Żeby zobaczyć **który program** trzyma 80 (bez `sudo` często brak nazwy procesu):
+
+```bash
+sudo ss -tlnp | grep ':80'
+```
+
+- Jeśli to **nginx na hoście** — dopisujesz `location /zagle` do **istniejącego** pliku / bloku `server { ... }`, który obsługuje Twój IP lub `default_server`.
+- Jeśli w kolumnie `users` widać **`docker-proxy`** przy `:80` — port 80 obsługuje **kontener** (mapowanie `80:80` lub podobne). Poniżej: osobna instrukcja.
+
+### Gdy `ss` pokazuje `docker-proxy` na porcie 80 (typowy VPS z Nginx w Dockerze)
+
+Oznacza to: **nie** edytujesz (być może w ogóle nieistniejącego) Nginx systemowego na hoście, tylko **Nginx w tym kontenerze**, który ma wystawiony host `:80`.
+
+1. **Znajdź kontener** (szukaj mapowania na `80`):
+
+   ```bash
+   docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"
+   ```
+
+   Interesuje Cię linia z czymś w stylu **`0.0.0.0:80->80/tcp`** (lub `:::80->80/tcp`).
+
+2. **Gdzie jest konfiguracja** — często katalog zamontowany z hosta:
+
+   ```bash
+   docker inspect NAZWA_KONTENERA --format '{{json .Mounts}}' | jq
+   ```
+
+   (bez `jq` możesz `docker inspect NAZWA_KONTENERA` i przejrzeć `Mounts` ręcznie.) Szukaj ścieżki do plików z `nginx.conf` / `conf.d`.
+
+3. **Backend Zagle** działa na **hoście** pod `127.0.0.1:3000` (tak jest w `docker-compose` tego projektu). Z **wnętrza innego kontenera** adres `127.0.0.1` to **ten kontener**, nie host — dlatego w `proxy_pass` użyj adresu hosta widzianego z Dockera, np.:
+
+   - **`http://172.17.0.1:3000`** — często działa na Linuksie (brama sieci `docker0` → host). Sprawdź z kontenera frontowego:
+
+     ```bash
+     docker exec NAZWA_FRONTOWEGO_NGINX sh -c 'wget -qO- --timeout=3 http://172.17.0.1:3000/zagle 2>/dev/null | head -c 200 || echo FAIL'
+     ```
+
+     (albo `curl`, jeśli jest w obrazie.)
+
+   - Jeśli **nie działa**, w compose frontowego stacka można dodać `extra_hosts: - "host.docker.internal:host-gateway"` (Docker obsługuje `host-gateway`) i wtedy **`http://host.docker.internal:3000`** w `proxy_pass`.
+
+4. **Blok do wklejenia** w `server { ... }` **w konfiguracji frontowego Nginx (w kontenerze)** — użyj adresu z punktu 3 zamiast `127.0.0.1`:
+
+   ```nginx
+   location /zagle {
+       proxy_pass http://172.17.0.1:3000;
+       proxy_http_version 1.1;
+       proxy_set_header Host $host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+   }
+   ```
+
+5. **Przeładuj Nginx w kontenerze** (nie `systemctl` na hoście, jeśli Nginx tylko w Dockerze):
+
+   ```bash
+   docker exec NAZWA_FRONTOWEGO_NGINX nginx -t
+   docker exec NAZWA_FRONTOWEGO_NGINX nginx -s reload
+   ```
+
+`sudo nginx -T` na hoście **pokaże konfigurację tylko hostowego** Nginx — jeśli front jest wyłącznie w kontenerze, edycja musi być **w plikach tego kontenera / jego volume**.
+
+### Przykład z Twojego serwera (`docker ps`)
+
+U Ciebie port **80** ma kontener **`nadprodukcje-nginx-1`** (obraz `nadprodukcje-nginx`) — to **ten** Nginx dopisujesz o `/zagle`. Pozostałe wpisy (**`filebrowser`** na **8080**, **Portainer** na **8000** / **9443**, **`bot_cenowy-*`**, backend `nadprodukcje`) zostawiasz; nie zmieniasz ich portów ani konfiguracji, chyba że świadomie łączysz routing w jednym pliku `nadprodukcje`.
+
+**Konkretne komendy** (podstawiasz własną ścieżkę do pliku po `inspect`):
+
+```bash
+docker inspect nadprodukcje-nginx-1 --format '{{json .Mounts}}'
+docker exec nadprodukcje-nginx-1 nginx -t
+docker exec nadprodukcje-nginx-1 nginx -s reload
+```
+
+Test z kontenera frontowego do Nexta na hoście:
+
+```bash
+docker exec nadprodukcje-nginx-1 sh -c 'wget -qO- --timeout=3 http://172.17.0.1:3000/zagle 2>/dev/null | head -c 200 || echo FAIL'
+```
+
+Konfigurację edytuj w pliku **na hoście**, który jest zamontowany do tego kontenera (ścieżka z `Mounts`), albo tymczasowo `docker exec -it nadprodukcje-nginx-1 sh` — ale po restarcie kontenera zmiany **wewnątrz obrazu bez volume** znikną, więc trwale: **volume / katalog projektu `nadprodukcje`**.
+
+### Czy starsze aplikacje przestaną działać?
+
+**Nie** przez sam fakt dodania **`location /zagle`**: Nginx dla adresów zaczynających się od `/zagle` wybierze ten blok; **pozostałe ścieżki** (`/`, inne prefiksy) dalej trafiają do dotychczasowych `location` / `server`. Nie usuwaj istniejących bloków — tylko **dodaj** nowy.
+
+### Blok do wklejenia (gdy frontowy Nginx jest na hoście, Next na `127.0.0.1:3000`)
+
+Wewnątrz właściwego `server { ... }`:
 
 ```nginx
 location /zagle {
@@ -182,7 +275,15 @@ location /zagle {
 }
 ```
 
-Potem sprawdź składnię i przeładuj Nginx (komendy mogą się różnić w zależności od dystrybucji):
+**Gdy `proxy_pass` idzie z kontenera na hosta** z Next na `127.0.0.1:3000`, zamień `http://127.0.0.1:3000` na adres hosta widziany z kontenera (np. `http://172.17.0.1:3000`) i sprawdź `curl` z wnętrza kontenera.
+
+Podgląd aktywnej konfiguracji Nginx na hoście (szukaj `listen 80`):
+
+```bash
+sudo nginx -T 2>/dev/null | less
+```
+
+Potem sprawdź składnię i przeładuj (dystrybucje mogą się różnić):
 
 ```bash
 sudo nginx -t
@@ -215,7 +316,7 @@ curl -I http://127.0.0.1:3000/zagle
 | Workflow w ogóle nie startuje | Czy push poszedł na gałąź **`main`**, a nie tylko na inną gałąź? |
 | Błąd przy **Deploy over SSH** | `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY`; czy ten sam publiczny klucz jest w `authorized_keys` dla tego użytkownika; test `ssh -i ...` z PC. |
 | Błąd przy **docker compose pull** | Czy obraz jest publiczny albo czy na serwerze był `docker login ghcr.io` z PAT z `read:packages`. |
-| **502** / brak strony pod adresem z IP | Czy kontener działa (`docker ps`), czy Nginx ma blok `location /zagle` i czy `reload` się udał (`nginx -t`). |
+| **502** / brak strony pod adresem z IP | Czy kontener Next działa (`docker ps`), `curl` na `127.0.0.1:3000/zagle` z hosta; czy **frontowy** Nginx ma `location /zagle` i reload. Jeśli Nginx jest **w kontenerze**, czy `proxy_pass` sięga hosta (np. `172.17.0.1:3000`), a nie `127.0.0.1` wewnątrz kontenera. |
 | Strona częściowo bez stylów | Zwykle zła ścieżka / proxy — upewnij się, że aplikacja ma `basePath` zgodny z `/zagle` i że wchodzisz pod **`/zagle`**, a nie pod root `/`. |
 
 ---
