@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: "/zagle",
-  output: "standalone",
+  assetPrefix: "/zagle",
 };
 
 export default nextConfig;
