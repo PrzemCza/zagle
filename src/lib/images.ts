@@ -1,17 +1,17 @@
 export const IMAGES = {
   hero: "/zagle/rsc/str1-282.jpg",
-  preview:
-    "https://images.pexels.com/photos/13259753/pexels-photo-13259753.jpeg?auto=compress&cs=tinysrgb&w=800",
+  preview: "/zagle/rsc/k386.jpg",
   about: [
-    "https://images.pexels.com/photos/29006673/pexels-photo-29006673.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/17917482/pexels-photo-17917482.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/32584175/pexels-photo-32584175.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "/zagle/rsc/w057.jpg",
+    "/zagle/rsc/w063.jpg",
+    "/zagle/rsc/w065.jpg",
   ],
-  lake: "https://images.pexels.com/photos/31266465/pexels-photo-31266465.jpeg?auto=compress&cs=tinysrgb&w=800",
+  lake: "/zagle/rsc/w372.jpg",
   offer: [
-    "https://images.pexels.com/photos/13259753/pexels-photo-13259753.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/29049560/pexels-photo-29049560.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/31473425/pexels-photo-31473425.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/28607221/pexels-photo-28607221.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "/zagle/rsc/w386.jpg",
+    "/zagle/rsc/z074.jpg",
+    "/zagle/rsc/z075.jpg",
+    "/zagle/rsc/z392.jpg",
+    "/zagle/rsc/z395.jpg",
   ],
 };
