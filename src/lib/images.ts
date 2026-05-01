@@ -1,5 +1,5 @@
 export const IMAGES = {
-  hero: "https://images.pexels.com/photos/29049560/pexels-photo-29049560.jpeg?auto=compress&cs=tinysrgb&h=1080",
+  hero: "/zagle/rsc/str1-282.jpg",
   preview:
     "https://images.pexels.com/photos/13259753/pexels-photo-13259753.jpeg?auto=compress&cs=tinysrgb&w=800",
   about: [

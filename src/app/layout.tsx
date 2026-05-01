@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Omega Sailing – Wynajem żaglówki Omega na Śniardwach",
+  title: "Sasanka 660 SN – Czarter na Jeziorsku",
   description:
-    "Wynajem żaglówki Omega na Jeziorze Śniardwy. Idealna na wakacje z rodziną lub ze znajomymi na Mazurach w Mikołajkach.",
+    "Czarter jachtu Sasanka 660 SN w Barkowicach Mokrych nad Jeziorskiem. Oferta dla 4-6 osób.",
 };
 
 export default function RootLayout({

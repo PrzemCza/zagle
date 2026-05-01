@@ -6,7 +6,6 @@ import { Menu, X, Anchor } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Strona główna" },
-  { href: "/o-mnie", label: "O mnie" },
   { href: "/oferta", label: "Oferta" },
   { href: "/kontakt", label: "Kontakt" },
 ];
@@ -21,7 +20,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2 group">
             <Anchor className="h-7 w-7 text-accent transition-transform group-hover:rotate-12" />
             <span className="text-xl font-bold text-gray-900">
-              Omega <span className="text-accent">Sailing</span>
+              Sasanka <span className="text-accent">660 SN</span>
             </span>
           </Link>
 

@@ -6,17 +6,17 @@ export default function CtaSection() {
 
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-          Gotowy na&nbsp;przygodę na&nbsp;wodzie?
+          Chcesz zarezerwować Sasankę 660 SN?
         </h2>
         <p className="text-sm sm:text-base text-blue-100 mb-8 leading-relaxed">
-          Zadzwoń lub napisz – sprawdź dostępność terminu i&nbsp;zarezerwuj żaglówkę Omega na&nbsp;Jeziorze Śniardwy.
+          Barkowice Mokre, Jeziorsko. Zadzwoń do Mariusza i sprawdź dostępny termin.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="tel:+48555123456"
             className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-accent-dark text-sm font-semibold rounded-full hover:bg-sky-50 transition-colors shadow-lg"
           >
-            +48 555 123 456
+            Zadzwoń
           </a>
           <a
             href="mailto:kontakt@omegasailing.pl"

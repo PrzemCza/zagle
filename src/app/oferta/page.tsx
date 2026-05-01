@@ -1,44 +1,48 @@
-import { Check, Ruler, Users, Wind, Weight, Gauge, Anchor, Phone, Mail } from "lucide-react";
+import { Check, Ruler, Users, Wind, Weight, Phone } from "lucide-react";
 import { IMAGES } from "@/lib/images";
 
 const specs = [
-  { icon: <Ruler className="h-5 w-5" />, label: "Długość całkowita", value: "6,20 m" },
-  { icon: <Ruler className="h-5 w-5" />, label: "Szerokość", value: "1,80 m" },
-  { icon: <Wind className="h-5 w-5" />, label: "Powierzchnia żagli", value: "~15 m²" },
-  { icon: <Users className="h-5 w-5" />, label: "Max. załoga", value: "6 osób" },
-  { icon: <Weight className="h-5 w-5" />, label: "Masa miecza", value: "30 kg" },
-  { icon: <Gauge className="h-5 w-5" />, label: "Silnik zaburtowy", value: "2 KM" },
-  { icon: <Anchor className="h-5 w-5" />, label: "Typ kadłuba", value: "Laminat szklano-poliestrowy" },
+  { icon: <Ruler className="h-5 w-5" />, label: "Długość całkowita", value: "6,60 m" },
+  { icon: <Ruler className="h-5 w-5" />, label: "Szerokość całkowita", value: "2,45-2,50 m" },
+  { icon: <Weight className="h-5 w-5" />, label: "Zanurzenie min/max", value: "0,33 m / 1,20-1,40 m" },
+  { icon: <Ruler className="h-5 w-5" />, label: "Wysokość w kabinie", value: "~1,60-1,65 m" },
+  { icon: <Wind className="h-5 w-5" />, label: "Powierzchnia żagli", value: "~20-22 m²" },
+  { icon: <Users className="h-5 w-5" />, label: "Liczba koi", value: "6 (4+2 lub 5+1)" },
+  { icon: <Weight className="h-5 w-5" />, label: "Balast / miecz", value: "~250 kg / 70 kg" },
+  { icon: <Ruler className="h-5 w-5" />, label: "Wysokość masztu", value: "8-8,5 m" },
 ];
 
 const included = [
-  "Kompletny sprzęt bezpieczeństwa (kamizelki, apteczka)",
-  "Żagle w dobrym stanie (grot, fok)",
-  "Miecz obrotowy – płytkie zanurzenie",
-  "Silnik zaburtowy 2 KM na slupraku",
-  "Pady wiosłowe",
-  "Krótki instruktaż przed każdym wypłynięciem",
+  "Silnik Mercury 4 KM",
+  "Miecz uchylny / obrotowy",
+  "Lazyjack, grot na pełzaczach z możliwością refowania",
+  "Fok rolowany, wszystkie fały sprowadzone do kokpitu",
+  "Instalacja 12V + podwójny port USB",
+  "Kotwica, cumy, pagaje, bosak, kapoki",
+  "Głośnik bluetooth",
+  "Kuchenka gazowa, gaśnica, apteczka",
+  "Stolik do kokpitu, talerze, naczynia i sztućce",
+  "Poduszki, koce, opcjonalna toaleta chemiczna",
   "Ubezpieczenie OC",
-  "Mapa jeziora i opis szlaków",
 ];
 
 const pricing = [
   {
-    label: "Wynajem jednodniowy",
-    price: "350 zł",
-    desc: "Idealny na próbę. 6–8 godzin żeglugi.",
+    label: "Doba w tygodniu",
+    price: "200 PLN",
+    desc: "Cena za dobę od poniedziałku do czwartku.",
     popular: false,
   },
   {
-    label: "Wynajem tygodniowy",
-    price: "1 800 zł",
-    desc: "Tydzień (7 dni) na jeziorze. Najpopularniejsza opcja.",
+    label: "Weekend",
+    price: "600 PLN",
+    desc: "Piątek 17-18 do niedzieli do 16:00.",
     popular: true,
   },
   {
-    label: "Pół dnia (4 h)",
-    price: "200 zł",
-    desc: "Idealne na popołudniowy spacer żeglarski.",
+    label: "Kaucja",
+    price: "200 PLN",
+    desc: "Port na Cyplu, Barkowice Mokre.",
     popular: false,
   },
 ];
@@ -50,13 +54,13 @@ export default function OfferPage() {
       <section className="bg-sky-50 py-14 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <span className="text-sm font-semibold uppercase tracking-widest text-accent mb-4 block">
-            Flota
+            Oferta
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-            Żaglówka <span className="text-accent">Omega</span>
+            Jacht <span className="text-accent">Sasanka 660 SN</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Kultowa polska żaglówka szkoleniowa, która od lat 60. pływa po jeziorach. Lekka, bezpieczna i&nbsp;nieprzewracająca się – idealna na&nbsp;rodzinne rejsy po Jeziorze Śniardwy.
+            Turystyczny jacht żaglowy dla 4-6 osób. Baza: Barkowice Mokre, woj. łódzkie, Jeziorsko.
           </p>
         </div>
       </section>
@@ -65,7 +69,7 @@ export default function OfferPage() {
       <section className="py-12 sm:py-16 bg-white">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="text-2xl font-extrabold text-gray-900 text-center mb-10">Dane techniczne</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {specs.map((s) => (
               <div
                 key={s.label}
@@ -85,10 +89,10 @@ export default function OfferPage() {
           {/* Additional info */}
           <div className="mt-10 prose prose-sm max-w-none text-gray-600 space-y-3 text-sm leading-relaxed">
             <p>
-              <strong>Konstrukcja:</strong> Kadłub z laminatu poliestrowo-szklanego. Płaskodenny kadłub ułatwia pływanie przy silnym wietrze.
+              <strong>Miecz:</strong> obrotowy/uchylny, wygodne podejście do płytszych miejsc.
             </p>
             <p>
-              <strong>Bezpieczeństwo:</strong> Dzięki dużemu balastowi i&nbsp;szerokości Omega ma bardzo trudne wychylenie – praktycznie niemożliwe do&nbsp;wywrócenia.
+              <strong>Wnętrze:</strong> sześć pełnowymiarowych koi oraz wyposażenie na kilkudniowy pobyt.
             </p>
           </div>
         </div>
@@ -172,22 +176,16 @@ export default function OfferPage() {
       {/* CTA */}
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 text-center">
-          <h3 className="text-xl font-extrabold text-gray-900 mb-3">Chcesz pożyczyć żaglówkę?</h3>
+            <h3 className="text-xl font-extrabold text-gray-900 mb-3">Chcesz wyczarterować jacht?</h3>
           <p className="text-sm text-gray-500 mb-6">
-            Skontaktuj się z nami – ustalamy dogodny termin i&nbsp;szereg zasad na&nbsp;miejscu.
+              Skontaktuj się z Mariuszem i ustal dogodny termin czarteru.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+48555123456"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-dark transition-colors"
             >
-              <Phone className="h-4 w-4" /> Zadzwoń
-            </a>
-            <a
-              href="mailto:kontakt@omegasailing.pl"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-accent text-accent rounded-full text-sm font-semibold hover:bg-accent/10 transition-colors"
-            >
-              <Mail className="h-4 w-4" /> Napisz e-mail
+              <Phone className="h-4 w-4" /> Zadzwoń do Mariusza
             </a>
           </div>
         </div>

@@ -10,10 +10,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Anchor className="h-6 w-6" />
-              <span className="text-lg font-bold">Omega Sailing</span>
+              <span className="text-lg font-bold">Sasanka 660 SN</span>
             </div>
             <p className="text-sm text-blue-100 leading-relaxed">
-              Wypożyczalnia żaglówek na Mazurach. Żegluj z nami po najpiękniejszych akwenach Polski.
+              Czarter jachtu Sasanka 660 SN na Jeziorsku. Barkowice Mokre, woj. łódzkie.
             </p>
           </div>
 
@@ -23,9 +23,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-blue-100">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">Strona główna</Link>
-              </li>
-              <li>
-                <Link href="/o-mnie" className="hover:text-white transition-colors">O mnie</Link>
               </li>
               <li>
                 <Link href="/oferta" className="hover:text-white transition-colors">Oferta</Link>
@@ -50,7 +47,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
-                <span>ul. Portowa 12<br />11-730 Mikołajki</span>
+                <span>Barkowice Mokre<br />woj. łódzkie, Jeziorsko</span>
               </li>
             </ul>
           </div>
@@ -59,15 +56,15 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Godziny otwarcia</h3>
             <ul className="space-y-2 text-sm text-blue-100">
-              <li>Pon. – Pt.: 8:00 – 18:00</li>
-              <li>Sob. – Nd.: 7:00 – 20:00</li>
+              <li>Pon. – Czw.: czarter dobowy</li>
+              <li>Pt. – Nd.: pakiet weekendowy</li>
             </ul>
-            <p className="text-xs text-blue-200 mt-4">Sezon: maj – wrzesień</p>
+            <p className="text-xs text-blue-200 mt-4">Kontakt: Mariusz</p>
           </div>
         </div>
 
         <div className="border-t border-blue-900 mt-8 pt-8 text-center text-xs text-blue-200">
-          &copy; {new Date().getFullYear()} Omega Sailing. Wszelkie prawa zastrzeżone.
+          &copy; {new Date().getFullYear()} Sasanka 660 SN. Wszelkie prawa zastrzeżone.
         </div>
       </div>
     </footer>

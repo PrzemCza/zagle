@@ -4,22 +4,22 @@ const features = [
   {
     icon: <Shield className="h-7 w-7" />,
     title: "Bezpieczeństwo",
-    desc: "Łódź w pełni wyposażona w sprzęt ratunkowy i&nbsp;ubezpieczenie OC.",
+    desc: "Jacht wyposażony w kapoki, apteczkę, gaśnicę i&nbsp;ubezpieczenie OC.",
   },
   {
     icon: <SailboatIcon className="h-7 w-7" />,
     title: "Łatwa obsługa",
-    desc: "Omega to prosta i stabilna jednostka – poradzisz sobie nawet bez patentu.",
+    desc: "Sasanka 660 SN ma miecz obrotowy, rolowanego foka i fały sprowadzone do kokpitu.",
   },
   {
     icon: <Map className="h-7 w-7" />,
     title: "Piękne trasy",
-    desc: "Jezioro Śniardwy i Krainy Wielkich Jezior Mazurskich – setki kilometrów dróg wodnych.",
+    desc: "Baza w Barkowicach Mokrych, woj. łódzkie, nad Jeziorskiem.",
   },
   {
     icon: <Clock className="h-7 w-7" />,
     title: "Elastyczny wynajem",
-    desc: "Wypożycz na kilka godzin lub cały dzień – dopasuję ofertę do Twoich potrzeb.",
+    desc: "200 PLN za dobę w tygodniu lub pakiet weekendowy piątek-niedziela.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function FeaturesSection() {
         <div className="text-center mb-12">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-accent mb-2">Dlaczego my</h2>
           <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-            Żegluj spokojnie i&nbsp;bezpiecznie
+            Czarter wygodny i gotowy do rejsu
           </p>
         </div>
 

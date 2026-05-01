@@ -14,7 +14,7 @@ export default function ContactPage() {
             Skontaktuj się z&nbsp;nami
           </h1>
           <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
-            Zadzwoń, napisz – sprawdzę dostępność i&nbsp;dobiorę termin, który Ci odpowiada.
+            Zadzwoń do Mariusza i sprawdź dostępność jachtu Sasanka 660 SN.
           </p>
         </div>
       </section>
@@ -59,9 +59,9 @@ export default function ContactPage() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Adres</p>
-                    <p className="text-gray-700">ul. Portowa 12<br />11-730 Mikołajki</p>
-                    <p className="text-xs text-gray-400 mt-1">Przystań przy głównym molo</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Lokalizacja</p>
+                    <p className="text-gray-700">Barkowice Mokre<br />woj. łódzkie, Jeziorsko</p>
+                    <p className="text-xs text-gray-400 mt-1">Port na Cyplu</p>
                   </div>
                 </div>
 
@@ -74,12 +74,12 @@ export default function ContactPage() {
                     <table className="text-sm text-gray-700 w-64">
                       <tbody>
                         <tr>
-                          <td className="py-0.5">Pon. – Pt.</td>
-                          <td className="text-right font-medium">8:00 – 18:00</td>
+                            <td className="py-0.5">Pon. – Czw.</td>
+                            <td className="text-right font-medium">Czarter dobowy</td>
                         </tr>
                         <tr>
-                          <td className="py-0.5">Sob. – Nd.</td>
-                          <td className="text-right font-medium">7:00 – 20:00</td>
+                            <td className="py-0.5">Pt. – Nd.</td>
+                            <td className="text-right font-medium">Pakiet weekendowy</td>
                         </tr>
                       </tbody>
                     </table>
@@ -92,8 +92,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Sezon</p>
-                    <p className="text-gray-700">Maj – wrzesień</p>
-                    <p className="text-xs text-gray-400 mt-1">Poza sezonem – po wcześniejszym uzgodnieniu</p>
+                    <p className="text-gray-700">Czarter po wcześniejszym uzgodnieniu</p>
+                    <p className="text-xs text-gray-400 mt-1">Osoba do kontaktu: Mariusz</p>
                   </div>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                 <iframe
                   title="Lokalizacja przystani"
                   className="w-full h-[400px] lg:h-full min-h-[400px]"
-                  src="https://maps.google.com/maps?q=Miko%C5%82ajki%2C%20ul.%20Portowa&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Barkowice%20Mokre&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -121,10 +121,10 @@ export default function ContactPage() {
                 <p className="font-semibold text-gray-800 text-base mb-2">Dojazd</p>
                 <ul className="space-y-2">
                   <li>
-                    <strong>Samochodem:</strong> Z drogi DK16 w kierunku Mikołajek, w centrum skręć w&nbsp;ul. Portową. Przy ulicy jest bezpłatny parking.
+                    <strong>Samochodem:</strong> Dojazd do Barkowic Mokrych, port na Cyplu.
                   </li>
                   <li>
-                    <strong>PKiS:</strong> Przystanek PKS Mikołajki – ok. 500 m spacerem do przystani.
+                    <strong>Na miejscu:</strong> Wydanie i zwrot jachtu po wcześniejszym kontakcie.
                   </li>
                 </ul>
               </div>

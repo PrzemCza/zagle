@@ -11,7 +11,7 @@ export default function BoatPreview() {
           <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
             <img
               src={IMAGES.preview}
-              alt="Żaglówka Omega na jeziorze"
+              alt="Jacht Sasanka 660 SN"
               className="object-cover w-full h-full"
             />
           </div>
@@ -19,30 +19,30 @@ export default function BoatPreview() {
           {/* Info */}
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-widest text-accent mb-2">
-              Nasza łódź
+              Nasz jacht
             </h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-              Żaglówka Omega
+              Sasanka 660 SN
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed mb-6">
-              Kultowa polska żaglówka szkoleniowa. Lekka, bezpieczna i&nbsp;nieprzewracająca się – idealna na&nbsp;spokojne jeziora.
-              Dzięki mieczowi obrotowemu wpływa też na&nbsp;płytkie zatoczki.
+              6,6-metrowy jacht turystyczny z mieczem obrotowym i silnikiem zaburtowym.
+              Wygodny dla 4-6 osób, idealny na Jeziorsko.
             </p>
 
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="flex flex-col items-center rounded-xl bg-sky-50 p-4">
                 <Ruler className="h-5 w-5 text-accent mb-2" />
-                <span className="text-lg font-bold text-gray-900">6,2&nbsp;m</span>
+                <span className="text-lg font-bold text-gray-900">6,60&nbsp;m</span>
                 <span className="text-xs text-gray-500">Długość</span>
               </div>
               <div className="flex flex-col items-center rounded-xl bg-sky-50 p-4">
                 <Users className="h-5 w-5 text-accent mb-2" />
                 <span className="text-lg font-bold text-gray-900">6</span>
-                <span className="text-xs text-gray-500">Załoga</span>
+                <span className="text-xs text-gray-500">Koi</span>
               </div>
               <div className="flex flex-col items-center rounded-xl bg-sky-50 p-4">
                 <Wind className="h-5 w-5 text-accent mb-2" />
-                <span className="text-lg font-bold text-gray-900">15&nbsp;m²</span>
+                <span className="text-lg font-bold text-gray-900">20-22&nbsp;m²</span>
                 <span className="text-xs text-gray-500">Żagle</span>
               </div>
             </div>
