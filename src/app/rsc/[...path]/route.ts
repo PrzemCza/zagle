@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 const RSC_DIR = path.join(process.cwd(), "rsc");
@@ -16,9 +17,10 @@ const MIME_TYPES: Record<string, string> = {
 };
 
 export async function GET(
-  _request: Request,
-  { params }: { params: { path: string[] } }
+  _request: NextRequest,
+  ctx: RouteContext<"/rsc/[...path]">
 ) {
+  const params = await ctx.params;
   const segments = params.path ?? [];
   if (segments.length === 0 || segments.some((segment) => segment.includes(".."))) {
     return NextResponse.json({ error: "Invalid path" }, { status: 400 });
