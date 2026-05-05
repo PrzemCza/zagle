@@ -26,7 +26,7 @@ export default function BoatPreview() {
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed mb-6">
               6,6-metrowy jacht turystyczny z mieczem obrotowym i silnikiem zaburtowym.
-              Wygodny dla 4-6 osób, idealny na Jeziorsko.
+              Wygodny dla 4-6 osób, idealny na Zalew Sulejowski.
             </p>
 
             <div className="grid grid-cols-3 gap-4 mb-8">

@@ -14,7 +14,7 @@ const features = [
   {
     icon: <Map className="h-7 w-7" />,
     title: "Piękne trasy",
-    desc: "Baza w Barkowicach Mokrych, woj. łódzkie, nad Jeziorskiem.",
+    desc: "Baza w Barkowicach Mokrych, woj. łódzkie, nad Zalewem Sulejowskim.",
   },
   {
     icon: <Clock className="h-7 w-7" />,

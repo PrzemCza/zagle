@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, CalendarDays } from "lucide-react";
+import { Phone, Mail, MapPin, CalendarDays } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
             Skontaktuj się z&nbsp;nami
           </h1>
           <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
-            Zadzwoń do Mariusza i sprawdź dostępność jachtu Sasanka 660 SN.
+            Zadzwoń lub napisz i sprawdź dostępność jachtu Sasanka 660 SN.
           </p>
         </div>
       </section>
@@ -33,8 +33,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Telefon</p>
-                    <a href="tel:+48555123456" className="text-gray-900 font-semibold hover:text-accent transition-colors text-lg">
-                      +48 555 123 456
+                    <a href="tel:+48503943226" className="text-gray-900 font-semibold hover:text-accent transition-colors text-lg">
+                      503 943 226
                     </a>
                   </div>
                 </div>
@@ -46,10 +46,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">E-mail</p>
                     <a
-                      href="mailto:kontakt@omegasailing.pl"
+                      href="mailto:bezulski@gmail.com"
                       className="text-gray-900 font-semibold hover:text-accent transition-colors"
                     >
-                      kontakt@omegasailing.pl
+                      bezulski@gmail.com
                     </a>
                   </div>
                 </div>
@@ -60,29 +60,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Lokalizacja</p>
-                    <p className="text-gray-700">Barkowice Mokre<br />woj. łódzkie, Jeziorsko</p>
+                    <p className="text-gray-700">Barkowice Mokre<br />woj. łódzkie, Zalew Sulejowski</p>
                     <p className="text-xs text-gray-400 mt-1">Port na Cyplu</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-accent-light flex items-center justify-center text-accent shrink-0">
-                    <Clock className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Godziny otwarcia</p>
-                    <table className="text-sm text-gray-700 w-64">
-                      <tbody>
-                        <tr>
-                            <td className="py-0.5">Pon. – Czw.</td>
-                            <td className="text-right font-medium">Czarter dobowy</td>
-                        </tr>
-                        <tr>
-                            <td className="py-0.5">Pt. – Nd.</td>
-                            <td className="text-right font-medium">Pakiet weekendowy</td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                 </div>
 
@@ -93,7 +72,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Sezon</p>
                     <p className="text-gray-700">Czarter po wcześniejszym uzgodnieniu</p>
-                    <p className="text-xs text-gray-400 mt-1">Osoba do kontaktu: Mariusz</p>
+                    <p className="text-xs text-gray-400 mt-1">Port na Cyplu</p>
                   </div>
                 </div>
               </div>

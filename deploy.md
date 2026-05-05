@@ -2,6 +2,8 @@
 
 Ten dokument prowadzi **krok po kroku** przez pierwsze wdrożenie. Zakładamy: aplikacja ma być pod adresem **`http://194.163.189.157/zagle`**, kontener na serwerze, automatyczny deploy po wypchnięciu kodu na GitHub.
 
+Aktualny, skrocony stan dzialajacej konfiguracji po wdrozeniu jest opisany w: `docs/USTAWIENIA_DEPLOY.md`.
+
 ---
 
 ## Jak to działa (w jednym zdaniu)

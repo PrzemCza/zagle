@@ -9,17 +9,17 @@ export default function CtaSection() {
           Chcesz zarezerwować Sasankę 660 SN?
         </h2>
         <p className="text-sm sm:text-base text-blue-100 mb-8 leading-relaxed">
-          Barkowice Mokre, Jeziorsko. Zadzwoń do Mariusza i sprawdź dostępny termin.
+          Barkowice Mokre, Zalew Sulejowski. Zadzwoń i sprawdź dostępny termin.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="tel:+48555123456"
+            href="tel:+48503943226"
             className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-accent-dark text-sm font-semibold rounded-full hover:bg-sky-50 transition-colors shadow-lg"
           >
             Zadzwoń
           </a>
           <a
-            href="mailto:kontakt@omegasailing.pl"
+            href="mailto:bezulski@gmail.com"
             className="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white text-sm font-semibold rounded-full hover:bg-white/10 transition-colors"
           >
             Napisz e-mail

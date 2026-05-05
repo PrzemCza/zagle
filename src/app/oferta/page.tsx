@@ -36,13 +36,13 @@ const pricing = [
   {
     label: "Weekend",
     price: "600 PLN",
-    desc: "Piątek 17-18 do niedzieli do 16:00.",
+    desc: "Od piątku do niedzieli.",
     popular: true,
   },
   {
-    label: "Kaucja",
-    price: "200 PLN",
-    desc: "Port na Cyplu, Barkowice Mokre.",
+    label: "Dłuższy czarter",
+    price: "Do ustalenia",
+    desc: "Możliwość negocjacji ceny przy dłuższym czarterze.",
     popular: false,
   },
 ];
@@ -60,7 +60,7 @@ export default function OfferPage() {
             Jacht <span className="text-accent">Sasanka 660 SN</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Turystyczny jacht żaglowy dla 4-6 osób. Baza: Barkowice Mokre, woj. łódzkie, Jeziorsko.
+            Turystyczny jacht żaglowy dla 4-6 osób. Baza: Barkowice Mokre, woj. łódzkie, Zalew Sulejowski.
           </p>
         </div>
       </section>
@@ -92,7 +92,7 @@ export default function OfferPage() {
               <strong>Miecz:</strong> obrotowy/uchylny, wygodne podejście do płytszych miejsc.
             </p>
             <p>
-              <strong>Wnętrze:</strong> sześć pełnowymiarowych koi oraz wyposażenie na kilkudniowy pobyt.
+              <strong>Wnętrze:</strong> wyposażenie na kilkudniowy pobyt w pełni zapewniające komfort i wygodę.
             </p>
           </div>
         </div>
@@ -178,14 +178,14 @@ export default function OfferPage() {
         <div className="mx-auto max-w-2xl px-4 sm:px-6 text-center">
             <h3 className="text-xl font-extrabold text-gray-900 mb-3">Chcesz wyczarterować jacht?</h3>
           <p className="text-sm text-gray-500 mb-6">
-              Skontaktuj się z Mariuszem i ustal dogodny termin czarteru.
+              Zadzwoń lub napisz i ustal dogodny termin czarteru.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+48555123456"
+              href="tel:+48503943226"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-dark transition-colors"
             >
-              <Phone className="h-4 w-4" /> Zadzwoń do Mariusza
+              <Phone className="h-4 w-4" /> Zadzwoń: 503 943 226
             </a>
           </div>
         </div>
