@@ -9,10 +9,34 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Sasanka 660 SN – Czarter na Jeziorsku",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Sasanka 660 SN - czarter na Zalewie Sulejowskim",
+    template: "%s | Sasanka 660 SN",
+  },
   description:
-    "Czarter jachtu Sasanka 660 SN w Barkowicach Mokrych nad Jeziorskiem. Oferta dla 4-6 osób.",
+    "Czarter jachtu Sasanka 660 SN w Barkowicach Mokrych nad Zalewem Sulejowskim. Oferta dla 4-6 osób.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Sasanka 660 SN - czarter na Zalewie Sulejowskim",
+    description:
+      "Czarter jachtu Sasanka 660 SN w Barkowicach Mokrych nad Zalewem Sulejowskim. Oferta dla 4-6 osób.",
+    url: "/",
+    siteName: "Sasanka 660 SN",
+    locale: "pl_PL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sasanka 660 SN - czarter na Zalewie Sulejowskim",
+    description:
+      "Czarter jachtu Sasanka 660 SN w Barkowicach Mokrych nad Zalewem Sulejowskim.",
+  },
 };
 
 export default function RootLayout({

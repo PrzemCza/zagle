@@ -4,7 +4,7 @@ const features = [
   {
     icon: <Shield className="h-7 w-7" />,
     title: "Bezpieczeństwo",
-    desc: "Jacht wyposażony w kapoki, apteczkę, gaśnicę i&nbsp;ubezpieczenie OC.",
+    desc: "Jacht wyposażony w kapoki, apteczkę, gaśnicę i ubezpieczenie OC.",
   },
   {
     icon: <SailboatIcon className="h-7 w-7" />,
@@ -28,10 +28,10 @@ export default function FeaturesSection() {
     <section className="py-16 sm:py-20 bg-sky-50" id="dlaczego-my">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-accent mb-2">Dlaczego my</h2>
-          <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-2">Dlaczego my</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
             Czarter wygodny i gotowy do rejsu
-          </p>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

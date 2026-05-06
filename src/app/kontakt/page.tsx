@@ -1,5 +1,29 @@
+import type { Metadata } from "next";
 import { Phone, Mail, MapPin, CalendarDays } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Kontakt i rezerwacja czarteru",
+  description:
+    "Skontaktuj się i sprawdź dostępność czarteru jachtu Sasanka 660 SN w Barkowicach Mokrych nad Zalewem Sulejowskim.",
+  alternates: {
+    canonical: "/kontakt",
+  },
+  openGraph: {
+    title: "Kontakt i rezerwacja czarteru",
+    description:
+      "Telefon, e-mail i lokalizacja przystani dla czarteru Sasanka 660 SN nad Zalewem Sulejowskim.",
+    url: "/kontakt",
+    siteName: "Sasanka 660 SN",
+    locale: "pl_PL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Kontakt i rezerwacja czarteru",
+    description: "Dane kontaktowe i mapa dojazdu do przystani w Barkowicach Mokrych.",
+  },
+};
 
 export default function ContactPage() {
   return (

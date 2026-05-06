@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Check, Ruler, Users, Wind, Weight, Phone } from "lucide-react";
 import { IMAGES } from "@/lib/images";
 
@@ -46,6 +47,36 @@ const pricing = [
     popular: false,
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Oferta czarteru Sasanka 660 SN",
+  description:
+    "Sprawdź ofertę czarteru jachtu Sasanka 660 SN na Zalewie Sulejowskim: dane techniczne, wyposażenie, cennik i galeria.",
+  alternates: {
+    canonical: "/oferta",
+  },
+  openGraph: {
+    title: "Oferta czarteru Sasanka 660 SN",
+    description:
+      "Sasanka 660 SN w Barkowicach Mokrych: specyfikacja, wyposażenie i ceny czarteru na Zalewie Sulejowskim.",
+    url: "/oferta",
+    siteName: "Sasanka 660 SN",
+    locale: "pl_PL",
+    type: "website",
+    images: [
+      {
+        url: IMAGES.preview,
+        alt: "Sasanka 660 SN - oferta czarteru",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oferta czarteru Sasanka 660 SN",
+    description: "Cennik i wyposażenie jachtu Sasanka 660 SN na Zalewie Sulejowskim.",
+    images: [IMAGES.preview],
+  },
+};
 
 export default function OfferPage() {
   return (
@@ -164,7 +195,7 @@ export default function OfferPage() {
               <div key={i} className="rounded-xl overflow-hidden aspect-square shadow">
                 <img
                   src={src}
-                  alt={`Galeria ${i + 1}`}
+                  alt={`Sasanka 660 SN na Zalewie Sulejowskim - zdjęcie ${i + 1}`}
                   className="object-cover w-full h-full"
                 />
               </div>
