@@ -8,7 +8,6 @@ export const IMAGES = {
   ],
   lake: "/zagle/rsc/n11.webp",
   offer: [
-    "/zagle/rsc/w386.webp",
     "/zagle/rsc/z074.webp",
     "/zagle/rsc/z075.webp",
     "/zagle/rsc/z392.webp",
@@ -17,8 +16,6 @@ export const IMAGES = {
     "/zagle/rsc/w063.webp",
     "/zagle/rsc/w065.webp",
     "/zagle/rsc/n11.webp",
-    "/zagle/rsc/n12.webp",
     "/zagle/rsc/k386.webp",
-    "/zagle/rsc/str1-282.webp",
   ],
 };
