@@ -6,7 +6,7 @@ export const IMAGES = {
     "/zagle/rsc/w063.webp",
     "/zagle/rsc/w065.webp",
   ],
-  lake: "/zagle/rsc/n11.webp",
+  lake: "/zagle/rsc/z074.webp",
   offer: [
     "/zagle/rsc/z074.webp",
     "/zagle/rsc/z075.webp",
@@ -15,7 +15,6 @@ export const IMAGES = {
     "/zagle/rsc/w057.webp",
     "/zagle/rsc/w063.webp",
     "/zagle/rsc/w065.webp",
-    "/zagle/rsc/n11.webp",
     "/zagle/rsc/k386.webp",
   ],
 };
