@@ -1,12 +1,18 @@
-import { Resend } from "resend";
 import { NextResponse } from "next/server";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const TO_EMAIL = process.env.CONTACT_EMAIL || "bezulski@gmail.com";
 
 export async function POST(request: Request) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: "Funkcja kontaktowa jest tymczasowo wyłączona." },
+        { status: 503 }
+      );
+    }
+
+    const { Resend } = await import("resend");
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const TO_EMAIL = process.env.CONTACT_EMAIL || "bezulski@gmail.com";
+
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
