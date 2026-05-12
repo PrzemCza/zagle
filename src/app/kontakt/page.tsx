@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, CalendarDays } from "lucide-react";
-import ContactForm from "@/components/ContactForm";
-
 export const metadata: Metadata = {
   title: "Kontakt i rezerwacja czarteru",
   description:
@@ -101,11 +99,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Quick contact form */}
-              <div className="mt-12 rounded-2xl bg-sky-50 p-6 sm:p-8">
-                <h3 className="text-base font-semibold text-gray-900 mb-4">Formularz kontaktowy</h3>
-                <ContactForm />
-              </div>
             </div>
 
             {/* Map column */}

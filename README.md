@@ -8,7 +8,7 @@ Zbudowana w Next.js 16 + Tailwind CSS, w pełni responsywna, bez systemu rezerwa
 - **Next.js 16** (App Router) + React 19
 - **Tailwind CSS** – stylowanie
 - **Lucide React** – ikony
-- TypeScript
+- TypeScript 
 
 ## Struktura stron
 
