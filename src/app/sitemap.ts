@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://umbriagaczarter.pl";
 const basePath = "/zagle";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/oferta", "/kontakt"];
+  const routes = ["", "/oferta", "/o-mnie", "/kontakt"];
   const now = new Date();
 
   return routes.map((route) => ({
