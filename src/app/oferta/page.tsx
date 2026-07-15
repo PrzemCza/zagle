@@ -36,7 +36,7 @@ const pricing = [
   },
   {
     label: "Weekend",
-    price: "600 PLN",
+    price: "650 PLN",
     desc: "Od piątku do niedzieli.",
     popular: true,
   },
