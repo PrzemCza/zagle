@@ -44,6 +44,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     env:
       REGISTRY: ghcr.io
     steps:
@@ -79,6 +82,7 @@ jobs:
             printf 'ZAGLE_IMAGE=%s\n' "${{ env.REGISTRY }}/${{ needs.build.outputs.image_lower }}:${{ github.sha }}" > .env
             echo "Wdrażam obraz z .env:"
             cat .env
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.repository_owner }}" --password-stdin
             docker compose pull
             docker compose up -d
             echo "Gotowe."
